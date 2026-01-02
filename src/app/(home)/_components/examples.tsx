@@ -64,7 +64,7 @@ export function Examples() {
       {/* Widget 1: Analytics */}
       <ExampleCard
         label="Analytics"
-        className="sm:col-span-2 sm:aspect-video aspect-square"
+        className="sm:col-span-2 sm:aspect-2/1 aspect-square"
         delay="delay-400"
       >
         {/* Stats Panel */}
@@ -143,7 +143,7 @@ export function Examples() {
       {/* Widget 2: Delivery */}
       <ExampleCard
         label="Delivery"
-        className="aspect-square lg:aspect-7/8"
+        className="aspect-square lg:aspect-auto"
         delay="delay-500"
       >
         <Map center={[-0.1076, 51.517]} zoom={12}>
