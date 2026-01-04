@@ -74,6 +74,7 @@ const Map = forwardRef<MapRef, MapProps>(function Map(
   const [isLoaded, setIsLoaded] = useState(false);
   const [isStyleLoaded, setIsStyleLoaded] = useState(false);
   const { resolvedTheme } = useTheme();
+  const prevThemeRef = useRef<string | undefined>(undefined);
 
   const mapStyles = useMemo(
     () => ({
@@ -106,6 +107,8 @@ const Map = forwardRef<MapRef, MapProps>(function Map(
 
     mapInstance.on("load", loadHandler);
     mapInstance.on("styledata", styleDataHandler);
+
+    prevThemeRef.current = resolvedTheme;
     setMapInstance(mapInstance);
 
     return () => {
@@ -121,8 +124,11 @@ const Map = forwardRef<MapRef, MapProps>(function Map(
 
   useEffect(() => {
     if (!mapInstance) return;
+    if (prevThemeRef.current === resolvedTheme) return;
 
+    prevThemeRef.current = resolvedTheme;
     setIsStyleLoaded(false);
+
     mapInstance.setStyle(
       resolvedTheme === "dark" ? mapStyles.dark : mapStyles.light,
       { diff: true }
@@ -926,8 +932,7 @@ function MapRoute({
   useEffect(() => {
     if (!isLoaded || !map || !interactive) return;
 
-    const handleClick = (e: MapLibreGL.MapMouseEvent) => {
-      e.originalEvent.stopImmediatePropagation();
+    const handleClick = () => {
       onClick?.();
     };
     const handleMouseEnter = () => {
