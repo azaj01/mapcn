@@ -9,6 +9,13 @@ import {
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 // DocsHeader - Page title and description
 interface DocsHeaderProps {
   title: string;
@@ -89,8 +96,9 @@ interface DocsSectionProps {
 }
 
 export function DocsSection({ title, children }: DocsSectionProps) {
+  const id = title ? slugify(title) : undefined;
   return (
-    <section className="space-y-5">
+    <section className="space-y-5 scroll-mt-20" id={id}>
       {title && (
         <h2 className="text-xl font-semibold tracking-tight text-primary">
           {title}

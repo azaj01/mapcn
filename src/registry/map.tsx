@@ -857,7 +857,7 @@ type MapRouteProps = {
 };
 
 function MapRoute({
-  id,
+  id: propId,
   coordinates,
   color = "#4285F4",
   width = 3,
@@ -870,8 +870,9 @@ function MapRoute({
 }: MapRouteProps) {
   const { map, isLoaded } = useMap();
   const autoId = useId();
-  const sourceId = id ?? `route-source-${autoId}`;
-  const layerId = id ?? `route-layer-${autoId}`;
+  const id = propId ?? autoId;
+  const sourceId = `route-source-${id}`;
+  const layerId = `route-layer-${id}`;
 
   // Add source and layer on mount
   useEffect(() => {
@@ -1283,3 +1284,5 @@ export {
   MapRoute,
   MapClusterLayer,
 };
+
+export type { MapRef };

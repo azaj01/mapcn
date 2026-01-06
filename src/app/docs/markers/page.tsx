@@ -1,4 +1,10 @@
-import { DocsLayout, DocsSection, DocsCode } from "../_components/docs";
+import {
+  DocsLayout,
+  DocsSection,
+  DocsCode,
+  DocsNote,
+  DocsLink,
+} from "../_components/docs";
 import { ComponentPreview } from "../_components/component-preview";
 import { MarkersExample } from "../_components/examples/markers-example";
 import { PopupExample } from "../_components/examples/popup-example";
@@ -13,7 +19,9 @@ export const metadata: Metadata = {
 export default function MarkersPage() {
   const markersSource = getExampleSource("markers-example.tsx");
   const popupSource = getExampleSource("popup-example.tsx");
-  const draggableMarkerSource = getExampleSource("draggable-marker-example.tsx");
+  const draggableMarkerSource = getExampleSource(
+    "draggable-marker-example.tsx"
+  );
 
   return (
     <DocsLayout
@@ -29,6 +37,16 @@ export default function MarkersPage() {
           tooltips that appear on hover.
         </p>
       </DocsSection>
+
+      <DocsNote>
+        <strong>Performance tip:</strong> <DocsCode>MapMarker</DocsCode> is
+        DOM-based and works best for a few dozen of markers. For larger
+        datasets, see the{" "}
+        <DocsLink href="/docs/advanced-usage#example-markers-via-layers">
+          GeoJSON layers example
+        </DocsLink>{" "}
+        instead. Rendering many DOM markers can make the browser sluggish.
+      </DocsNote>
 
       <DocsSection title="Basic Example">
         <p>

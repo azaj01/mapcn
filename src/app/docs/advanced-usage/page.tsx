@@ -8,6 +8,7 @@ import {
 import { ComponentPreview } from "../_components/component-preview";
 import { AdvancedUsageExample } from "../_components/examples/advanced-usage-example";
 import { CustomLayerExample } from "../_components/examples/custom-layer-example";
+import { LayerMarkersExample } from "../_components/examples/layer-markers-example";
 import { CodeBlock } from "../_components/code-block";
 import { getExampleSource } from "@/lib/get-example-source";
 import { Metadata } from "next";
@@ -16,12 +17,11 @@ export const metadata: Metadata = {
   title: "Advanced Usage",
 };
 
-const refCode = `import { Map } from "@/components/ui/map";
+const refCode = `import { Map, type MapRef } from "@/components/ui/map";
 import { useRef } from "react";
-import type MapLibreGL from "maplibre-gl";
 
 function MyMapComponent() {
-  const mapRef = useRef<MapLibreGL.Map>(null);
+  const mapRef = useRef<MapRef>(null);
 
   const handleFlyTo = () => {
     // Access the MapLibre GL map instance via ref
@@ -65,6 +65,7 @@ function MapEventListener() {
 export default function AdvancedPage() {
   const advancedSource = getExampleSource("advanced-usage-example.tsx");
   const customLayerSource = getExampleSource("custom-layer-example.tsx");
+  const layerMarkersSource = getExampleSource("layer-markers-example.tsx");
 
   return (
     <DocsLayout
@@ -130,6 +131,19 @@ export default function AdvancedPage() {
 
       <ComponentPreview code={customLayerSource}>
         <CustomLayerExample />
+      </ComponentPreview>
+
+      <DocsSection title="Example: Markers via Layers">
+        <p>
+          When displaying hundreds or thousands of markers, use GeoJSON layers
+          instead of DOM-based <DocsCode>MapMarker</DocsCode> components. This
+          approach renders markers on the WebGL canvas, providing significantly
+          better performance.
+        </p>
+      </DocsSection>
+
+      <ComponentPreview code={layerMarkersSource}>
+        <LayerMarkersExample />
       </ComponentPreview>
 
       <DocsSection title="Extend to Build">
