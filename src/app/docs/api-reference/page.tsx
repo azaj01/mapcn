@@ -102,6 +102,12 @@ export default function ApiReferencePage() {
                 "Child components (markers, popups, controls, routes).",
             },
             {
+              name: "theme",
+              type: '"light" | "dark"',
+              description:
+                "Theme for the map. If not provided, automatically detects from document class or system preference.",
+            },
+            {
               name: "styles",
               type: "{ light?: string | StyleSpecification; dark?: string | StyleSpecification }",
               description:

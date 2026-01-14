@@ -67,11 +67,11 @@ export function DocsLayout({
         <div className="mt-10 space-y-10">{children}</div>
 
         {(prev || next) && (
-          <div className="flex items-center justify-between gap-4 mt-14 pt-8 border-t">
+          <div className="flex items-center justify-between gap-4 mt-12">
             {prev ? (
               <Link
                 href={prev.href}
-                className="group flex flex-col items-start gap-1.5"
+                className="group flex flex-col items-start gap-1"
               >
                 <span className="text-xs text-muted-foreground">Previous</span>
                 <span className="text-sm font-medium group-hover:underline underline-offset-4">
@@ -84,7 +84,7 @@ export function DocsLayout({
             {next && (
               <Link
                 href={next.href}
-                className="group flex flex-col items-end gap-1.5"
+                className="group flex flex-col items-end gap-1"
               >
                 <span className="text-xs text-muted-foreground">Next</span>
                 <span className="text-sm font-medium group-hover:underline underline-offset-4">
