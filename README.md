@@ -51,10 +51,10 @@ MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Star History
 
-<a href="https://www.star-history.com/#mapcn/mapcn&type=date&legend=top-left">
+<a href="https://www.star-history.com/#AnmolSaini16/mapcn&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=mapcn/mapcn&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=mapcn/mapcn&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=mapcn/mapcn&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=AnmolSaini16/mapcn&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=AnmolSaini16/mapcn&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=AnmolSaini16/mapcn&type=date&legend=top-left" />
  </picture>
 </a>
